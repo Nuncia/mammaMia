@@ -6,10 +6,10 @@ const Pizza = () => {
    const {
       pizza,
       consegirPizza,
-      montoTotal,
-      setMontoTotal,
-      cantidadProductos,
-      setcantidadProductos,
+      // montoTotal,
+      // setMontoTotal,
+      // cantidadProductos,
+      // setcantidadProductos,
       agregarPizza,
    } = useContext(ContextPizza);
    const { id } = useParams();

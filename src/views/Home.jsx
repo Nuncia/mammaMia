@@ -6,12 +6,12 @@ const Pizzas = () => {
    const {
       pizzas,
       obtenerPizzas,
-      montoTotal,
-      setMontoTotal,
-      listaProductos,
-      setListaProductos,
-      cantidadProductos,
-      setcantidadProductos,
+      // montoTotal,
+      // setMontoTotal,
+      // listaProductos,
+      // setListaProductos,
+      // cantidadProductos,
+      // setcantidadProductos,
       agregarPizza,
    } = useContext(ContextPizza);
    const [cargando, setCargando] = useState(true);
