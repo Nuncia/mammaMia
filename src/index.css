@@ -38,3 +38,30 @@ body{
     font-weight: 800;
     font-size: xxx-large;
 }
+.pizzas{
+    display: flex;
+}
+.contenedor__1{
+    position: relative;
+    top: 327px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 46px;
+}
+.pizzaDetalle{
+    width: 18rem;
+    position: relative;
+    top: 340px;
+}
+.detalle{
+    isplay: flex;
+    justify-content: center;
+}
+.circulo{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: start;
+}
