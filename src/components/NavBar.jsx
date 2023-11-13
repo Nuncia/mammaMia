@@ -17,10 +17,12 @@ const NavBar = () => {
                </div>
             </div>
             <div style={{ marginRight: '20px', display: 'flex' }}>
-               <p>${montoTotal}</p>
+               <p>Total ${montoTotal}</p>
                &nbsp;&nbsp;
                <div className="circulo">&nbsp;&nbsp; {cantidadProductos}</div>
-               <i className="fa-solid fa-cart-shopping"></i>
+               <NavLink to="/carrito">
+                  <i className="fa-solid fa-cart-shopping"></i>
+               </NavLink>
             </div>
          </div>
          <div className="imagen">

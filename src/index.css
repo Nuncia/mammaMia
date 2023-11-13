@@ -15,7 +15,7 @@ body{
 .imagen{
     display: flex;
     height: 40vh;
-    width: 1900px;
+    width: 1519px;
     position: absolute;
     background-image: url(/src/assets/pizza_4.jpg);
     opacity: 0.7;
@@ -24,7 +24,8 @@ body{
     text-align: center;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
+    margin-right: 30px;
 }
 .imagen_2{
     height: 40vh;
@@ -49,9 +50,11 @@ body{
     gap: 46px;
 }
 .pizzaDetalle{
-    width: 18rem;
+    width: 38rem;
     position: relative;
+    display: flex;
     top: 340px;
+    flex-direction: row;
 }
 .detalle{
     isplay: flex;
@@ -64,4 +67,16 @@ body{
     width: 25px;
     height: 25px;
     text-align: start;
+}
+.titulo__2{
+    position: relative;
+    top: 328px;
+    text-align: center;
+    font-weight: bold;
+}
+.carcasa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
