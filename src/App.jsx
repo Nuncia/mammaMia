@@ -13,15 +13,17 @@ function App() {
       <>
          <ProviderPizza>
             <BrowserRouter>
-               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <NavBar />
-                  <Routes>
-                     <Route path="/" element={<Home />} />
-                     <Route path="/pizza/:id" element={<Pizza />} />
-                     <Route path="/dataPizza" element={<DataPizza />} />
-                     <Route path="/carrito" element={<Carrito />} />
-                  </Routes>
-                  <Footer />
+               <div className="contendor__pizzas">
+                  <NavBar className="header" />
+                  <main className="main">
+                     <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/pizza/:id" element={<Pizza />} />
+                        <Route path="/dataPizza" element={<DataPizza />} />
+                        <Route path="/carrito" element={<Carrito />} />
+                     </Routes>
+                  </main>
+                  {/* <Footer className="footer" /> */}
                </div>
             </BrowserRouter>
          </ProviderPizza>

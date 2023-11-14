@@ -1,45 +1,74 @@
 import { useContext, useEffect, useState } from 'react';
 import { ContextPizza } from '../context/ContextPizza';
+import { useNavigate } from 'react-router-dom';
 
 const Carrito = () => {
-   const { listaProductos, setListaProductos, montoTotal } =
+   const { listaProductos, montoTotal, setMontoTotal } =
       useContext(ContextPizza);
-   const [cargando, setCargando] = useState(true);
+   const navigate = useNavigate();
+
+   const decrementar = (producto) => {
+      producto.cantidad = producto.cantidad - 1;
+      setMontoTotal(montoTotal - producto.price);
+      navigate(`/carrito`);
+   };
+
+   const sumar = (producto) => {
+      producto.cantidad = producto.cantidad + 1;
+      setMontoTotal(montoTotal + producto.price);
+      navigate(`/carrito`);
+   };
+
    useEffect(() => {
       console.log(listaProductos);
    });
    return (
-      <div style={{ position: 'relative', top: '330px', width: '500px' }}>
+      <div className="contenedor__carrito">
+         <h3 style={{ textAlign: 'center' }}>Orden N° 1</h3>
          <table className="table">
-            <thead>
-               <tr>
-                  <th scope="col">id</th>
-                  <th scope="col">imagen</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">precio</th>
-                  <th scope="col">SubMonto</th>
-               </tr>
-            </thead>
             <tbody>
                {listaProductos.map((item) => (
                   <tr key={item.id}>
-                     <th scope="row">{item.id}</th>
                      <td>
-                        <img style={{ width: '50px' }} src={item.img} alt="" />
+                        <img
+                           style={{ width: '50px' }}
+                           src={item.img}
+                           alt={item.name}
+                        />
                      </td>
                      <td>{item.name}</td>
-                     <td>{item.cantidad}</td>
-                     <td>{item.price}</td>
+                     <td>$ {item.price}</td>
+                     <td>
+                        <button
+                           style={{ marginRight: '6px' }}
+                           className="btn btn-info"
+                           onClick={() => decrementar(item)}
+                        >
+                           -
+                        </button>
+                        {item.cantidad}
+                        <button
+                           style={{ marginLeft: '6px' }}
+                           className="btn btn-danger"
+                           onClick={() => sumar(item)}
+                        >
+                           +
+                        </button>
+                     </td>
+                     <td style={{ marginLeft: '50px' }}>
+                        $ {item.price * item.cantidad}
+                     </td>
                   </tr>
                ))}
-               <tr>
-                  <th scope="row">1</th>
-               </tr>
+               {/* <tr> */}
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td style={{ fontSize: '24px' }}>$ {montoTotal}</td>
+               {/* </tr> */}
             </tbody>
          </table>
-         <div>
-            <p>{montoTotal}</p>
-         </div>
       </div>
    );
 };

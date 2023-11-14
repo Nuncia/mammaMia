@@ -1,18 +1,15 @@
 import { useContext, useEffect } from 'react';
 import { ContextPizza } from '../context/ContextPizza';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Pizza = () => {
-   const {
-      pizza,
-      consegirPizza,
-      // montoTotal,
-      // setMontoTotal,
-      // cantidadProductos,
-      // setcantidadProductos,
-      agregarPizza,
-   } = useContext(ContextPizza);
+   const { pizza, consegirPizza, agregarPizza } = useContext(ContextPizza);
    const { id } = useParams();
+   const navigate = useNavigate();
+
+   const volver = () => {
+      navigate(`/`);
+   };
 
    useEffect(() => {
       consegirPizza(id);
@@ -21,34 +18,48 @@ const Pizza = () => {
    return (
       <div className="detalle">
          {pizza === undefined ? (
-            <p>Volver a seleccionar pizza</p>
+            <div>
+               <p>Volver a seleccionar pizza</p>
+               <button onClick={volver}>Volver...</button>
+            </div>
          ) : (
             <div className="carcasa">
-               <h2 className="titulo__2">{pizza.name}</h2>
+               {/* <h2 className="titulo__2">{pizza.name}</h2> */}
                <div className="card pizzaDetalle">
-                  <img
-                     style={{ width: '300px' }}
-                     src={pizza.img}
-                     className="card-img-top"
-                     alt="..."
-                  />
+                  <img src={pizza.img} className="card-img-top" alt="..." />
                   <div className="card-body">
                      <div
                         style={{
                            display: 'flex',
-                           justifyContent: 'space-evenly',
+                           justifyContent: 'space-around',
                         }}
                      >
-                        <h5 className="card-title">{pizza.name}</h5>
-                        <h4 style={{ fontWeight: '800' }}>$ {pizza.price}</h4>
+                        <h4
+                           className="card-title"
+                           style={{ textAlign: 'left' }}
+                        >
+                           {pizza.name}
+                        </h4>
+                        <h4 style={{ fontWeight: '800', textAlign: 'center' }}>
+                           $ {pizza.price}
+                        </h4>
                      </div>
-                     <div style={{ marginBottom: '40px' }}>
+                     <hr />
+                     {/* <div style={{ marginBottom: '40px' }}>
                         {pizza.ingredients.map((ingrediente) => (
                            <p key={ingrediente}>🍕{ingrediente}</p>
                         ))}
-                     </div>
+                     </div> */}
                      <p>{pizza.desc}</p>
+                     <hr />
                      <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <a
+                           href="#"
+                           onClick={volver}
+                           className="btn btn-primary"
+                        >
+                           Volver
+                        </a>
                         &nbsp; &nbsp;
                         <a
                            href="#"

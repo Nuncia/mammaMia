@@ -30,6 +30,7 @@ export const ProviderPizza = ({ children }) => {
    };
 
    const agregarPizza = (producto) => {
+      event.preventDefault();
       const productoExiste = listaProductos.find(
          (item) => item.id === producto.id
       );
