@@ -28,7 +28,9 @@ const Pizzas = () => {
                <div key={item.id} className="card " style={{ width: '18rem' }}>
                   <img src={item.img} className="card-img-top" alt="..." />
                   <div className="card-body">
-                     <h5 className="card-title">{item.name}</h5>
+                     <h5 style={{ textAlign: 'center' }} className="card-title">
+                        {item.name.toUpperCase()}
+                     </h5>
                      <hr />
                      <div>
                         {item.ingredients.map((ingrediente) => (

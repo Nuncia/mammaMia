@@ -16,7 +16,6 @@ export const ProviderPizza = ({ children }) => {
          const respuesta = await fetch('pizzas.json');
          const json = await respuesta.json();
          const productos = json.map((item) => ({ ...item, cantidad: 0 }));
-         console.log(productos);
          setPizzas(productos);
       } catch (e) {
          console.error('Error al cargar los datos: ', e);

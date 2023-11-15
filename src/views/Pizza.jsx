@@ -13,13 +13,12 @@ const Pizza = () => {
 
    useEffect(() => {
       consegirPizza(id);
-      console.log(pizza.name.toUpperCase());
    }, []);
    return (
       <div className="detalle">
          {pizza === undefined ? (
-            <div>
-               <p>Volver a seleccionar pizza</p>
+            <div className="detalle__2">
+               <h2>Volver a seleccionar una pizza</h2>
                <button onClick={volver}>Volver...</button>
             </div>
          ) : (
@@ -43,7 +42,7 @@ const Pizza = () => {
                            className="card-title"
                            style={{ textAlign: 'left' }}
                         >
-                           {pizza.name.toUpperCase()}
+                           {pizza.name}
                         </h4>
                         <h4 style={{ fontWeight: '800', textAlign: 'center' }}>
                            $ {pizza.price}

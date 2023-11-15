@@ -32,8 +32,6 @@ const NavBar = () => {
                style={{ justifyContent: 'flex-end' }}
             >
                <div className="navbar-nav">
-                  {/* <a className="nav-link" aria-current="page" href="#"></a>
-                     <a className="nav-link" href="#"></a> */}
                   {montoTotal > 0 ? (
                      <a className="nav-link" href="#">
                         <div style={{ display: 'flex' }}>
@@ -42,11 +40,16 @@ const NavBar = () => {
                            </NavLink>
                            &nbsp;&nbsp;&nbsp;
                            <div className="carrito">
-                              <NavLink to="/carrito">
-                                 <i className="fa-solid fa-cart-shopping fa-1x icono">
-                                    <p className="circulo">
-                                       {cantidadProductos}
-                                    </p>
+                              <NavLink to="/carrito" className={setActive}>
+                                 <i
+                                    style={{ marginTop: '14px' }}
+                                    className="fa-solid fa-cart-shopping fa-lg"
+                                 >
+                                    <div className="circulo">
+                                       <p style={{ color: 'red' }} href="">
+                                          {cantidadProductos}
+                                       </p>
+                                    </div>
                                  </i>
                               </NavLink>
                            </div>

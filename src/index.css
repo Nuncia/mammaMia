@@ -28,3 +28,30 @@ footer{
 .pizzaDetalle{
     width: 500px;
 }
+.detalle__2{
+    background-color: rgba(212, 130, 130, 0.567);
+    display: flex;
+    width: 390px;
+    margin-top: inherit;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.carrito{
+    display: flex;
+    text-align: center;
+    padding-left: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.circulo{
+    background-color: rgb(150, 24, 32);
+    color: blue;
+    /* border-radius: 45%; */
+    width: 10px;
+    margin-left: 5px;
+    text-align: center;
+
+}

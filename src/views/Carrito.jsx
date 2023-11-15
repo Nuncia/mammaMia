@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { ContextPizza } from '../context/ContextPizza';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Carrito = () => {
-   const setActive = (isActive) =>
-      isActive ? 'active__carrito' : 'inActive__carrit';
    const [cargando, setCargando] = useState(true);
    const {
       listaProductos,
@@ -14,13 +12,16 @@ const Carrito = () => {
       cantidadProductos,
    } = useContext(ContextPizza);
    const navigate = useNavigate();
-   // const navigat = useNavigate();
 
    const decrementar = (producto) => {
-      producto.cantidad = producto.cantidad - 1;
-      setMontoTotal(montoTotal - producto.price);
-      setcantidadProductos(cantidadProductos - 1);
-      navigate(`/carrito`);
+      if (producto.cantidad > 0) {
+         producto.cantidad = producto.cantidad - 1;
+         setMontoTotal(montoTotal - producto.price);
+         setcantidadProductos(cantidadProductos - 1);
+         navigate(`/carrito`);
+      } else {
+         return;
+      }
    };
 
    const sumar = (producto) => {
@@ -33,12 +34,16 @@ const Carrito = () => {
    const volverDetalle = (producto) => {
       console.log('volverDetalle: ', producto.id);
 
-      navigate(`pizza/${producto.id}`);
+      navigate(`/pizza/${producto.id}`);
+   };
+
+   const volver = () => {
+      navigate(`/`);
    };
 
    useEffect(() => {
       if (listaProductos.length > 0) {
-         setCargando(false);
+         setCargando(true);
       } else {
          setCargando(true);
       }
@@ -46,7 +51,26 @@ const Carrito = () => {
    return (
       <div style={{ margin: '100px' }}>
          {cargando ? (
-            <p>No hay productos seleccionados</p>
+            <div
+               style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignContent: 'center',
+               }}
+            >
+               <div className="detalle__2">
+                  <h3 style={{ textAlign: 'center' }}>
+                     No tienes productos selecionados
+                  </h3>
+               </div>
+               <button
+                  className="btn btn-danger"
+                  style={{ width: '70px' }}
+                  onClick={volver}
+               >
+                  Volver...
+               </button>
+            </div>
          ) : (
             <div className="contenedor__carrito">
                <h3 style={{ textAlign: 'center' }}>Orden N° 1</h3>
@@ -62,7 +86,10 @@ const Carrito = () => {
                               />
                            </td>
                            <td>
-                              <p onClick={() => volverDetalle(item)}>
+                              <p
+                                 style={{ color: 'blue' }}
+                                 onClick={() => volverDetalle(item)}
+                              >
                                  {item.name.toUpperCase()}
                               </p>
                            </td>
@@ -94,10 +121,17 @@ const Carrito = () => {
                      <td></td>
                      <td></td>
                      <td></td>
-                     <td style={{ fontSize: '24px' }}>$ {montoTotal}</td>
+                     <td style={{ fontSize: '24px' }}>
+                        {/* <a>Ir a Pagar</a>$ {montoTotal} */}
+                     </td>
                      {/* </tr> */}
                   </tbody>
                </table>
+               <div>
+                  <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
+                     Ir a Pagar $ {montoTotal}
+                  </p>
+               </div>
             </div>
          )}
       </div>
