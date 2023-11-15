@@ -16,19 +16,19 @@ const Carrito = () => {
    const navigate = useNavigate();
    // const navigat = useNavigate();
 
-   // const decrementar = (producto) => {
-   //    producto.cantidad = producto.cantidad - 1;
-   //    setMontoTotal(montoTotal - producto.price);
-   //    setcantidadProductos(cantidadProductos - 1);
-   //    navigate(`/carrito`);
-   // };
+   const decrementar = (producto) => {
+      producto.cantidad = producto.cantidad - 1;
+      setMontoTotal(montoTotal - producto.price);
+      setcantidadProductos(cantidadProductos - 1);
+      navigate(`/carrito`);
+   };
 
-   // const sumar = (producto) => {
-   //    producto.cantidad = producto.cantidad + 1;
-   //    setMontoTotal(montoTotal + producto.price);
-   //    setcantidadProductos(cantidadProductos + 1);
-   //    navigate(`/carrito`);
-   // };
+   const sumar = (producto) => {
+      producto.cantidad = producto.cantidad + 1;
+      setMontoTotal(montoTotal + producto.price);
+      setcantidadProductos(cantidadProductos + 1);
+      navigate(`/carrito`);
+   };
 
    const volverDetalle = (producto) => {
       console.log('volverDetalle: ', producto.id);
