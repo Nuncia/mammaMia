@@ -5,7 +5,6 @@ import Carrito from './views/Carrito';
 import NavBar from './components/NavBar';
 import Home from './views/Home';
 import Pizza from './views/Pizza';
-import DataPizza from './components/DataPizza';
 import Footer from './components/Footer';
 
 function App() {
@@ -13,17 +12,16 @@ function App() {
       <>
          <ProviderPizza>
             <BrowserRouter>
-               <div className="contendor__pizzas">
-                  <NavBar className="header" />
-                  <main className="main">
+               <div>
+                  <NavBar />
+                  <main>
                      <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/pizza/:id" element={<Pizza />} />
-                        <Route path="/dataPizza" element={<DataPizza />} />
                         <Route path="/carrito" element={<Carrito />} />
                      </Routes>
                   </main>
-                  {/* <Footer className="footer" /> */}
+                  <Footer className="footer" />
                </div>
             </BrowserRouter>
          </ProviderPizza>

@@ -46,18 +46,14 @@ const Pizza = () => {
                      </div>
                      <hr />
                      {/* <div style={{ marginBottom: '40px' }}>
-                        {pizza.ingredients.map((ingrediente) => (
+                        {pizza?.ingredients?.map((ingrediente) => (
                            <p key={ingrediente}>🍕{ingrediente}</p>
                         ))}
                      </div> */}
                      <p>{pizza.desc}</p>
                      <hr />
                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <a
-                           href="#"
-                           onClick={volver}
-                           className="btn btn-primary"
-                        >
+                        <a href="#" onClick={volver} className="btn btn-dark">
                            Volver
                         </a>
                         &nbsp; &nbsp;

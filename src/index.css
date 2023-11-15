@@ -1,144 +1,21 @@
-body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Bebas Neue', sans-serif;
-}
-.contendor__pizzas{
-    display: grid;
-    grid-template-areas: 'navBar'
-                         'header'
-                         'footer';
-    grid-template-columns: 5fr;
-}
-.navBar{
-    grid-area: 'header';
-}
-.main{
-    grid-area: 'main';
-}
-.footer{
-    grid-area: 'footer';
-    display: flex;
-}
-.navBar__uno{
-    background-color: cornflowerblue;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: inherit;
-}
 .active{
     color: white;
     text-decoration: none;
 }
-.imagen{
-    display: flex;
-    height: 40vh;
-    width: 1519px;
-    position: absolute;
-    background-image: url(/src/assets/pizza_4.jpg);
-    opacity: 0.5;
-    /* background-repeat: no-repeat; */
-    color: white;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 30px;
-    justify-content: center;
+.inActive{
+    color: black;
+    text-decoration: none;
 }
-.imagen_2{
-    height: 40vh;
-    width: 100%;
-    position: absolute;
-    z-index: -2;  
-}
-.titulo{
-    text-align: end;
-    font-weight: 800;
-    font-size: 73px;
-}
-.pizzas{
-    display: flex;
-}
-.contenedor__1{
-    position: relative;
-    top: 327px;
+.contenedor{
     display: flex;
     flex-wrap: wrap;
-    gap: 46px;
-}
-.pizzaDetalle{
-    width: 38rem;
-    position: relative;
-    /* display: flex; */
-    top: 340px;
-    margin-bottom: 50px;
-}
-.detalle{
-    isplay: flex;
     justify-content: center;
+    gap: 35px;
 }
-.detalle__2{
-    position: relative;
-    top: 439px;
+footer{
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.circulo{
     background-color: black;
     color: white;
-    text-align: start;
-    font-size: x-small;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative;
-    margin-top: -12px;
-    z-index: 4;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-}
-.titulo__2{
-    position: relative;
-    top: 328px;
-    text-align: center;
-    font-weight: bold;
-}
-.carcasa{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.contenedor__carrito{
-    position: relative;
-    top: 330px;
-    display: flex;
-    flex-direction: column;
-}
-.tabla{
-    border-color: white;
-    width: 645px;
-    display: flex;
-    justify-content: flex-end;
-}
-.montoFinal{
-    font-weight: 800;
-    margin-left: 12px;
-    font-size: x-large;
-}
-.icono{
-    color: white;
-    margin-top: 5px;
-    
-}
-.contenedor_carrito{
-    margin-top: 28px;
-    display: flex;
-    font-size: 18px;
-    margin-right: 20px;
+    margin-top: 19px;
 }
