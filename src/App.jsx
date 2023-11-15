@@ -12,17 +12,15 @@ function App() {
       <>
          <ProviderPizza>
             <BrowserRouter>
-               <div>
-                  <NavBar />
-                  <main>
-                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/pizza/:id" element={<Pizza />} />
-                        <Route path="/carrito" element={<Carrito />} />
-                     </Routes>
-                  </main>
-                  <Footer className="footer" />
-               </div>
+               <NavBar />
+               <main>
+                  <Routes>
+                     <Route path="/" element={<Home />} />
+                     <Route path="/pizza/:id" element={<Pizza />} />
+                     <Route path="/carrito" element={<Carrito />} />
+                  </Routes>
+               </main>
+               <Footer />
             </BrowserRouter>
          </ProviderPizza>
       </>

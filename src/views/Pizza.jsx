@@ -13,7 +13,7 @@ const Pizza = () => {
 
    useEffect(() => {
       consegirPizza(id);
-      console.log(pizza);
+      console.log(pizza.name.toUpperCase());
    }, []);
    return (
       <div className="detalle">
@@ -23,10 +23,15 @@ const Pizza = () => {
                <button onClick={volver}>Volver...</button>
             </div>
          ) : (
-            <div className="carcasa">
+            <div className="detalle">
                {/* <h2 className="titulo__2">{pizza.name}</h2> */}
                <div className="card pizzaDetalle">
-                  <img src={pizza.img} className="card-img-top" alt="..." />
+                  <img
+                     src={pizza.img}
+                     style={{}}
+                     className="card-img-top"
+                     alt="..."
+                  />
                   <div className="card-body">
                      <div
                         style={{
@@ -38,7 +43,7 @@ const Pizza = () => {
                            className="card-title"
                            style={{ textAlign: 'left' }}
                         >
-                           {pizza.name}
+                           {pizza.name.toUpperCase()}
                         </h4>
                         <h4 style={{ fontWeight: '800', textAlign: 'center' }}>
                            $ {pizza.price}

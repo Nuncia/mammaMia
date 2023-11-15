@@ -1,23 +1,39 @@
 import { useContext, useEffect, useState } from 'react';
 import { ContextPizza } from '../context/ContextPizza';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Carrito = () => {
+   const setActive = (isActive) =>
+      isActive ? 'active__carrito' : 'inActive__carrit';
    const [cargando, setCargando] = useState(true);
-   const { listaProductos, montoTotal, setMontoTotal } =
-      useContext(ContextPizza);
+   const {
+      listaProductos,
+      montoTotal,
+      setMontoTotal,
+      setcantidadProductos,
+      cantidadProductos,
+   } = useContext(ContextPizza);
    const navigate = useNavigate();
+   // const navigat = useNavigate();
 
-   const decrementar = (producto) => {
-      producto.cantidad = producto.cantidad - 1;
-      setMontoTotal(montoTotal - producto.price);
-      navigate(`/carrito`);
-   };
+   // const decrementar = (producto) => {
+   //    producto.cantidad = producto.cantidad - 1;
+   //    setMontoTotal(montoTotal - producto.price);
+   //    setcantidadProductos(cantidadProductos - 1);
+   //    navigate(`/carrito`);
+   // };
 
-   const sumar = (producto) => {
-      producto.cantidad = producto.cantidad + 1;
-      setMontoTotal(montoTotal + producto.price);
-      navigate(`/carrito`);
+   // const sumar = (producto) => {
+   //    producto.cantidad = producto.cantidad + 1;
+   //    setMontoTotal(montoTotal + producto.price);
+   //    setcantidadProductos(cantidadProductos + 1);
+   //    navigate(`/carrito`);
+   // };
+
+   const volverDetalle = (producto) => {
+      console.log('volverDetalle: ', producto.id);
+
+      navigate(`pizza/${producto.id}`);
    };
 
    useEffect(() => {
@@ -28,7 +44,7 @@ const Carrito = () => {
       }
    }, []);
    return (
-      <div>
+      <div style={{ margin: '100px' }}>
          {cargando ? (
             <p>No hay productos seleccionados</p>
          ) : (
@@ -45,7 +61,11 @@ const Carrito = () => {
                                  alt={item.name}
                               />
                            </td>
-                           <td>{item.name}</td>
+                           <td>
+                              <p onClick={() => volverDetalle(item)}>
+                                 {item.name.toUpperCase()}
+                              </p>
+                           </td>
                            <td>$ {item.price}</td>
                            <td>
                               <button

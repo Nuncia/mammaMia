@@ -10,7 +10,7 @@ export const ProviderPizza = ({ children }) => {
    const [montoTotal, setMontoTotal] = useState(0);
    const [cantidadProductos, setcantidadProductos] = useState(0);
 
-   //Fucion asincrona papa cargar datos desde archivo json
+   //Funcion asincrona papa cargar datos desde archivo json
    const obtenerPizzas = async () => {
       try {
          const respuesta = await fetch('pizzas.json');

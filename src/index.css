@@ -7,15 +7,24 @@
     text-decoration: none;
 }
 .contenedor{
+    margin: 30px 0px 60px 60px;
     display: flex;
     flex-wrap: wrap;
+    gap: 25px;
     justify-content: center;
-    gap: 35px;
+}
+main{
+    min-height: 100vh;
 }
 footer{
-    display: flex;
-    justify-content: center;
     background-color: black;
     color: white;
-    margin-top: 19px;
+}
+.detalle{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.pizzaDetalle{
+    width: 500px;
 }
