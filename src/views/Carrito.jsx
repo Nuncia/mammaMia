@@ -32,8 +32,6 @@ const Carrito = () => {
    };
 
    const volverDetalle = (producto) => {
-      console.log('volverDetalle: ', producto.id);
-
       navigate(`/pizza/${producto.id}`);
    };
 
@@ -43,9 +41,9 @@ const Carrito = () => {
 
    useEffect(() => {
       if (listaProductos.length > 0) {
-         setCargando(true);
+         setCargando(false);
       } else {
-         setCargando(true);
+         setCargando(false);
       }
    }, []);
    return (
@@ -127,9 +125,16 @@ const Carrito = () => {
                      {/* </tr> */}
                   </tbody>
                </table>
-               <div>
-                  <p style={{ fontSize: '25px', fontWeight: 'bold' }}>
-                     Ir a Pagar $ {montoTotal}
+               <div style={{ display: 'flex' }}>
+                  <button className="btn btn-danger">Ir a Pagar </button>
+                  <p
+                     style={{
+                        fontSize: '25px',
+                        fontWeight: 'bold',
+                        marginLeft: '8px',
+                     }}
+                  >
+                     $ {montoTotal}
                   </p>
                </div>
             </div>
