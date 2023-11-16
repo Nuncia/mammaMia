@@ -46,6 +46,7 @@ const Carrito = () => {
          setCargando(false);
       }
    }, []);
+
    return (
       <div style={{ margin: '100px' }}>
          {cargando ? (
@@ -74,55 +75,54 @@ const Carrito = () => {
                <h3 style={{ textAlign: 'center' }}>Orden N° 1</h3>
                <table className="table">
                   <tbody>
-                     {listaProductos.map((item) => (
-                        <tr key={item.id}>
-                           <td>
-                              <img
-                                 style={{ width: '50px' }}
-                                 src={item.img}
-                                 alt={item.name}
-                              />
-                           </td>
-                           <td>
-                              <p
-                                 style={{ color: 'blue' }}
-                                 onClick={() => volverDetalle(item)}
-                              >
-                                 {item.name.toUpperCase()}
-                              </p>
-                           </td>
-                           <td>$ {item.price}</td>
-                           <td>
-                              <button
-                                 style={{ marginRight: '6px' }}
-                                 className="btn btn-info"
-                                 onClick={() => decrementar(item)}
-                              >
-                                 -
-                              </button>
-                              {item.cantidad}
-                              <button
-                                 style={{ marginLeft: '6px' }}
-                                 className="btn btn-danger"
-                                 onClick={() => sumar(item)}
-                              >
-                                 +
-                              </button>
-                           </td>
-                           <td style={{ marginLeft: '50px' }}>
-                              $ {item.price * item.cantidad}
-                           </td>
-                        </tr>
-                     ))}
-                     {/* <tr> */}
+                     {listaProductos.map((item) =>
+                        item.cantidad > 0 ? (
+                           <tr key={item.id}>
+                              <td>
+                                 <img
+                                    style={{ width: '50px' }}
+                                    src={item.img}
+                                    alt={item.name}
+                                 />
+                              </td>
+                              <td>
+                                 <p
+                                    style={{ color: 'blue' }}
+                                    onClick={() => volverDetalle(item)}
+                                 >
+                                    {item.name.toUpperCase()}
+                                 </p>
+                              </td>
+                              <td>$ {item.price}</td>
+                              <td>
+                                 <button
+                                    style={{ marginRight: '6px' }}
+                                    className="btn btn-info"
+                                    onClick={() => decrementar(item)}
+                                 >
+                                    -
+                                 </button>
+                                 {item.cantidad}
+                                 <button
+                                    style={{ marginLeft: '6px' }}
+                                    className="btn btn-danger"
+                                    onClick={() => sumar(item)}
+                                 >
+                                    +
+                                 </button>
+                              </td>
+                              <td style={{ marginLeft: '50px' }}>
+                                 $ {item.price * item.cantidad}
+                              </td>
+                           </tr>
+                        ) : (
+                           ''
+                        )
+                     )}
                      <td></td>
                      <td></td>
                      <td></td>
                      <td></td>
-                     <td style={{ fontSize: '24px' }}>
-                        {/* <a>Ir a Pagar</a>$ {montoTotal} */}
-                     </td>
-                     {/* </tr> */}
                   </tbody>
                </table>
                <div style={{ display: 'flex' }}>
