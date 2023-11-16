@@ -38,6 +38,7 @@ footer{
     flex-direction: column;
     border-radius: 5px;
     margin-bottom: 10px;
+    text-align: center;
 }
 .carrito{
     display: flex;
@@ -54,4 +55,27 @@ footer{
     margin-left: 5px;
     text-align: center;
 
+}
+.imagenHeader{
+    width: 100%;
+    height: 30vh;
+}
+.pizzeria{
+  height: 18vh;
+  text-align: center;
+  background-image: url('./assets/pizza_4-copia.jpg');  
+  color: white;
+  font-size: 52px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: -1px -1px 0 #363333, 1px -1px 0 #363333, -1px 1px 0 #363333, 1px 1px 0 #000;
+}
+.boton{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-bottom: auto;
 }

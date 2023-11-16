@@ -25,7 +25,6 @@ export const ProviderPizza = ({ children }) => {
    const consegirPizza = (id) => {
       const detalle = pizzas.find((item) => item.id == id);
       setPizza(detalle);
-      // console.log('pizza: ', pizza);
    };
 
    const agregarPizza = (producto) => {

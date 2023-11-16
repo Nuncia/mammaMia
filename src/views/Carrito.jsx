@@ -6,6 +6,7 @@ const Carrito = () => {
    const [cargando, setCargando] = useState(true);
    const {
       listaProductos,
+      setListaProductos,
       montoTotal,
       setMontoTotal,
       setcantidadProductos,
@@ -18,9 +19,14 @@ const Carrito = () => {
          producto.cantidad = producto.cantidad - 1;
          setMontoTotal(montoTotal - producto.price);
          setcantidadProductos(cantidadProductos - 1);
-         navigate(`/carrito`);
-      } else {
-         return;
+         if (producto.cantidad === 0) {
+            const productos = listaProductos.filter(
+               (item) => item.id !== producto.id
+            );
+            setListaProductos(productos);
+
+            navigate(`/carrito`);
+         }
       }
    };
 
@@ -45,10 +51,12 @@ const Carrito = () => {
       } else {
          setCargando(false);
       }
-   }, []);
+   }, [listaProductos]);
 
    return (
-      <div style={{ margin: '100px' }}>
+      <div
+         style={{ margin: '100px', display: 'flex', justifyContent: 'center' }}
+      >
          {cargando ? (
             <div
                style={{
@@ -70,7 +78,7 @@ const Carrito = () => {
                   Volver...
                </button>
             </div>
-         ) : (
+         ) : listaProductos.length > 0 ? (
             <div className="contenedor__carrito">
                <h3 style={{ textAlign: 'center' }}>Orden N° 1</h3>
                <table className="table">
@@ -119,24 +127,16 @@ const Carrito = () => {
                            ''
                         )
                      )}
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                     <td></td>
                   </tbody>
                </table>
                <div style={{ display: 'flex' }}>
                   <button className="btn btn-danger">Ir a Pagar </button>
-                  <p
-                     style={{
-                        fontSize: '25px',
-                        fontWeight: 'bold',
-                        marginLeft: '8px',
-                     }}
-                  >
-                     $ {montoTotal}
-                  </p>
+                  <p className="boton">$ {montoTotal}</p>
                </div>
+            </div>
+         ) : (
+            <div className="detalle__2" style={{}}>
+               Debes agregar productos al carrito
             </div>
          )}
       </div>

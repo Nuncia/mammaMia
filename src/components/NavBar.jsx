@@ -6,34 +6,38 @@ const NavBar = () => {
    const { montoTotal, cantidadProductos } = useContext(ContextPizza);
    const setActive = (isActive) => (isActive ? 'active' : 'inActive');
    return (
-      <nav style={{}} className="navbar navbar-expand-xxl navbar-dark bg-dark">
-         <div className="container-fluid">
-            <a className="navbar-brand">
-               <div style={{ display: 'flex' }}>
-                  <NavLink className={setActive} to="/">
-                     Pizzería Mamma Mia! 🍕
-                  </NavLink>
-               </div>
-            </a>
-            <button
-               className="navbar-toggler"
-               type="button"
-               data-bs-toggle="collapse"
-               data-bs-target="#navbarNavAltMarkup"
-               aria-controls="navbarNavAltMarkup"
-               aria-expanded="false"
-               aria-label="Toggle navigation"
-            >
-               <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-               className="collapse navbar-collapse"
-               id="navbarNavAltMarkup"
-               style={{ justifyContent: 'flex-end' }}
-            >
-               <div className="navbar-nav">
-                  {montoTotal > 0 ? (
-                     <a className="nav-link" href="#">
+      <div>
+         <nav
+            style={{}}
+            className="navbar navbar-expand-xxl navbar-dark bg-dark"
+         >
+            <div className="container-fluid">
+               <a className="navbar-brand">
+                  <div style={{ display: 'flex' }}>
+                     <NavLink className={setActive} to="/">
+                        Pizzería Mamma Mia! 🍕
+                     </NavLink>
+                  </div>
+               </a>
+               <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+               >
+                  <span className="navbar-toggler-icon"></span>
+               </button>
+               <div
+                  className="collapse navbar-collapse"
+                  id="navbarNavAltMarkup"
+                  style={{ justifyContent: 'flex-end' }}
+               >
+                  <div className="navbar-nav">
+                     {montoTotal > 0 ? (
+                        // <a className="nav-link">
                         <div style={{ display: 'flex' }}>
                            <NavLink className={setActive} to="/carrito">
                               {montoTotal > 0 ? <p>$ {montoTotal}</p> : ''}
@@ -54,14 +58,18 @@ const NavBar = () => {
                               </NavLink>
                            </div>
                         </div>
-                     </a>
-                  ) : (
-                     ''
-                  )}
+                     ) : (
+                        // </a>
+                        ''
+                     )}
+                  </div>
                </div>
             </div>
+         </nav>
+         <div className="pizzeria">
+            <p>MAMMAMIA, la otra pizza!!!</p>
          </div>
-      </nav>
+      </div>
    );
 };
 
