@@ -36,32 +36,26 @@ const NavBar = () => {
                   style={{ justifyContent: 'flex-end' }}
                >
                   <div className="navbar-nav">
-                     {montoTotal > 0 ? (
-                        // <a className="nav-link">
-                        <div style={{ display: 'flex' }}>
-                           <NavLink className={setActive} to="/carrito">
-                              {montoTotal > 0 ? <p>$ {montoTotal}</p> : ''}
+                     <div style={{ display: 'flex' }}>
+                        <NavLink className={setActive} to="/carrito">
+                           {montoTotal > 0 ? <p>$ {montoTotal}</p> : ''}
+                        </NavLink>
+                        &nbsp;&nbsp;&nbsp;
+                        <div className="carrito">
+                           <NavLink to="/carrito" className={setActive}>
+                              <i
+                                 style={{ marginTop: '14px' }}
+                                 className="fa-solid fa-cart-shopping fa-lg"
+                              >
+                                 <div className="circulo">
+                                    <p style={{ color: 'red' }} href="">
+                                       {cantidadProductos}
+                                    </p>
+                                 </div>
+                              </i>
                            </NavLink>
-                           &nbsp;&nbsp;&nbsp;
-                           <div className="carrito">
-                              <NavLink to="/carrito" className={setActive}>
-                                 <i
-                                    style={{ marginTop: '14px' }}
-                                    className="fa-solid fa-cart-shopping fa-lg"
-                                 >
-                                    <div className="circulo">
-                                       <p style={{ color: 'red' }} href="">
-                                          {cantidadProductos}
-                                       </p>
-                                    </div>
-                                 </i>
-                              </NavLink>
-                           </div>
                         </div>
-                     ) : (
-                        // </a>
-                        ''
-                     )}
+                     </div>
                   </div>
                </div>
             </div>

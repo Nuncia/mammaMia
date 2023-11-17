@@ -24,8 +24,6 @@ const Carrito = () => {
                (item) => item.id !== producto.id
             );
             setListaProductos(productos);
-
-            navigate(`/carrito`);
          }
       }
    };
@@ -34,7 +32,7 @@ const Carrito = () => {
       producto.cantidad = producto.cantidad + 1;
       setMontoTotal(montoTotal + producto.price);
       setcantidadProductos(cantidadProductos + 1);
-      navigate(`/carrito`);
+      // navigate(`/carrito`);
    };
 
    const volverDetalle = (producto) => {
@@ -135,8 +133,20 @@ const Carrito = () => {
                </div>
             </div>
          ) : (
-            <div className="detalle__2" style={{}}>
-               Debes agregar productos al carrito
+            <div
+               style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+               }}
+            >
+               <div className="detalle__2" style={{}}>
+                  Debes agregar productos al carrito
+               </div>
+               <button onClick={volver} style={{ width: '129px' }}>
+                  Ir al inicio
+               </button>
             </div>
          )}
       </div>
