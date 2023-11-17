@@ -32,7 +32,6 @@ const Carrito = () => {
       producto.cantidad = producto.cantidad + 1;
       setMontoTotal(montoTotal + producto.price);
       setcantidadProductos(cantidadProductos + 1);
-      // navigate(`/carrito`);
    };
 
    const volverDetalle = (producto) => {
@@ -93,7 +92,7 @@ const Carrito = () => {
                               </td>
                               <td>
                                  <p
-                                    style={{ color: 'blue' }}
+                                    style={{ color: 'blue', cursor: 'pointer' }}
                                     onClick={() => volverDetalle(item)}
                                  >
                                     {item.name.toUpperCase()}
@@ -144,9 +143,6 @@ const Carrito = () => {
                <div className="detalle__2" style={{}}>
                   Debes agregar productos al carrito
                </div>
-               <button onClick={volver} style={{ width: '129px' }}>
-                  Ir al inicio
-               </button>
             </div>
          )}
       </div>

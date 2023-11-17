@@ -18,8 +18,7 @@ const Pizza = () => {
       <div className="detalle">
          {pizza === undefined ? (
             <div className="detalle__2">
-               <h2>Volver a seleccionar una pizza</h2>
-               <button onClick={volver}>Volver...</button>
+               <h3>Ocurrio un error: vuelva a seleccionar la pizza</h3>
             </div>
          ) : (
             <div className="detalle">

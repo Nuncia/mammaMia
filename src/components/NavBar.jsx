@@ -7,18 +7,18 @@ const NavBar = () => {
    const setActive = (isActive) => (isActive ? 'active' : 'inActive');
    return (
       <div>
-         <div
-            style={{}}
-            className="navbar navbar-expand-xxl navbar-dark bg-dark"
-         >
+         <div className="navbar navbar-expand-xxl navbar-dark bg-dark">
             <div className="container-fluid">
-               {/* <a className="navbar-brand"> */}
                <div style={{ display: 'flex' }}>
                   <NavLink className={setActive} to="/">
                      Pizzería Mamma Mia! 🍕
                   </NavLink>
                </div>
-               {/* </a> */}
+               <NavLink className={setActive} to="/">
+                  <p style={{ marginBottom: '0px', marginLeft: '10px' }}>
+                     Menú
+                  </p>
+               </NavLink>
                <button
                   className="navbar-toggler"
                   type="button"
