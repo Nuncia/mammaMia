@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { ProviderPizza } from './context/ContextPizza';
 import Carrito from './views/Carrito';
@@ -11,7 +11,7 @@ function App() {
    return (
       <>
          <ProviderPizza>
-            <BrowserRouter>
+            <Router>
                <NavBar />
                <main>
                   <Routes>
@@ -21,7 +21,7 @@ function App() {
                   </Routes>
                </main>
                <Footer />
-            </BrowserRouter>
+            </Router>
          </ProviderPizza>
       </>
    );
